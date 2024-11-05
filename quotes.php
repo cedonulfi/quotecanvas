@@ -24,7 +24,7 @@ $result = $conn->query($sql); // Execute the query
 if ($result && $result->num_rows > 0) {
     // Fetch data from the query result
     $row = $result->fetch_assoc(); // Get the associative array of the quote
-    echo $row['quote'] . "<br>"; // Display the quote
+    echo $row['quote'] . PHP_EOL; // Display the quote
     echo $row['author']; // Display the author of the quote
 } else {
     // Message displayed if no quotes are found for the selected category
