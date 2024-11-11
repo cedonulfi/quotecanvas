@@ -1,4 +1,6 @@
 <?php
+// First: "Create a database on your server/hosting, then import the database (SQL file) I have provided."
+
 // Database connection parameters
 $servername = "localhost"; // replace with your database server
 $username = "username"; // replace with your database username
