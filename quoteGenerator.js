@@ -1,6 +1,8 @@
 const canvas = document.getElementById('quoteCanvas');
 const ctx = canvas.getContext('2d');
 
+// Next : Upload interesting fonts, and add an option to select a font.
+
 // Function to fetch quote and author
 async function fetchQuote(category) {
     try {
