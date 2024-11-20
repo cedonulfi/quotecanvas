@@ -4,104 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuoteCanvas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-        }
-        canvas {
-            border: 1px solid #000;
-            margin-top: 20px;
-        }
-        .controls {
-            margin: 20px 0;
-        }
-        textarea {
-            width: 100%;
-            max-width: 400px;
-            height: 60px;
-        }
-        footer {
-            margin-top: 20px;
-            padding: 10px 0;
-            background-color: #fff;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- next: make this page responsive -->
     <h1>QuoteCanvas</h1>
     <div class="controls">
-        <label for="category">Category:</label>
-        <select id="category">
-            <option value="Motivation">Motivation</option>
-            <option value="Love">Love</option>
-            <option value="LifeLessons">LifeLessons</option>
-            <option value="Happiness">Happiness</option>
-            <option value="Success">Success</option>
-        </select>
-        <button id="addQuotes">Add Quote</button>
+        <!-- Quote Category -->
+        <div class="section">
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="Motivation">Motivation</option>
+                <option value="Love">Love</option>
+                <option value="LifeLessons">LifeLessons</option>
+                <option value="Happiness">Happiness</option>
+                <option value="Success">Success</option>
+            </select>
+            <button id="addQuotes">Add Quote</button>
+        </div>
 
-        <h3>Canvas Size</h3>
-        <label for="canvasWidth">Width:</label>
-        <input type="text" id="canvasWidth" value="500"> px
-        <label for="canvasHeight">Height:</label>
-        <input type="text" id="canvasHeight" value="500"> px
-        <button id="resizeCanvas">Resize Canvas</button>
+        <!-- Canvas Size -->
+        <div class="section">
+            <h3>Canvas Size</h3>
+            <label for="canvasWidth">Width:</label>
+            <input type="text" id="canvasWidth" value="500"> px
+            <label for="canvasHeight">Height:</label>
+            <input type="text" id="canvasHeight" value="500"> px
+            <button id="resizeCanvas">Resize Canvas</button>
+        </div>
 
-        <h3>Quote Settings</h3>
-        <textarea id="quote"></textarea>
-        <label for="quoteFontSize">Font Size:</label>
-        <input type="range" id="quoteFontSize" value="20" min="10" max="100">
-        <span id="quoteFontSizeValue">20</span>px
-        <label for="quoteFontColor">Font Color:</label>
-        <input type="color" id="quoteFontColor" value="#000000">
-        <label for="quoteShadowColor">Shadow Color:</label>
-        <input type="color" id="quoteShadowColor" value="#cccccc">
-        <label for="quoteShadowSize">Shadow Size:</label>
-        <input type="range" id="quoteShadowSize" value="4" min="0" max="20">
-        <span id="quoteShadowSizeValue">4</span>px
+        <!-- Quote Settings -->
+        <div class="section">
+            <h3>Quote Settings</h3>
+            <textarea id="quote" placeholder="Type your quote here..."></textarea>
+            <div class="input-group">
+                <label for="quoteFontSize">Font Size:</label>
+                <input type="range" id="quoteFontSize" value="20" min="10" max="100">
+                <span id="quoteFontSizeValue">20</span>px
+            </div>
+            <label for="quoteFontColor">Font Color:</label>
+            <input type="color" id="quoteFontColor" value="#000000">
+            <label for="quoteShadowColor">Shadow Color:</label>
+            <input type="color" id="quoteShadowColor" value="#cccccc">
+            <div class="input-group">
+                <label for="quoteShadowSize">Shadow Size:</label>
+                <input type="range" id="quoteShadowSize" value="4" min="0" max="20">
+                <span id="quoteShadowSizeValue">4</span>px
+            </div>
+        </div>
 
-        <h3>Author Settings</h3>
-        <input type="text" id="author" />
-        <label for="authorFontSize">Font Size:</label>
-        <input type="range" id="authorFontSize" value="14" min="10" max="50">
-        <span id="authorFontSizeValue">14</span>px
-        <label for="authorFontColor">Font Color:</label>
-        <input type="color" id="authorFontColor" value="#ffffff">
-        <label for="authorShadowColor">Shadow Color:</label>
-        <input type="color" id="authorShadowColor" value="#000000">
-        <label for="authorShadowSize">Shadow Size:</label>
-        <input type="range" id="authorShadowSize" value="4" min="0" max="20">
-        <span id="authorShadowSizeValue">4</span>px
-        <label for="authorBottomMargin">Bottom Margin:</label>
-        <input type="range" id="authorBottomMargin" value="20" min="0" max="100">
-        <span id="authorBottomMarginValue">20</span>px
+        <!-- Author Settings -->
+        <div class="section">
+            <h3>Author Settings</h3>
+            <input type="text" id="author" placeholder="Author's name">
+            <div class="input-group">
+                <label for="authorFontSize">Font Size:</label>
+                <input type="range" id="authorFontSize" value="14" min="10" max="50">
+                <span id="authorFontSizeValue">14</span>px
+            </div>
+            <label for="authorFontColor">Font Color:</label>
+            <input type="color" id="authorFontColor" value="#ffffff">
+            <label for="authorShadowColor">Shadow Color:</label>
+            <input type="color" id="authorShadowColor" value="#000000">
+            <div class="input-group">
+                <label for="authorShadowSize">Shadow Size:</label>
+                <input type="range" id="authorShadowSize" value="4" min="0" max="20">
+                <span id="authorShadowSizeValue">4</span>px
+            </div>
+            <div class="input-group">
+                <label for="authorBottomMargin">Bottom Margin:</label>
+                <input type="range" id="authorBottomMargin" value="20" min="0" max="100">
+                <span id="authorBottomMarginValue">20</span>px
+            </div>
+        </div>
 
-        <h3>Background Settings</h3>
-        <label for="bgColor1">Background Color 1:</label>
-        <input type="color" id="bgColor1" value="#ffffff">
-        <label for="bgColor2">Background Color 2:</label>
-        <input type="color" id="bgColor2" value="#4caf50">
+        <!-- Background Settings -->
+        <div class="section">
+            <h3>Background Settings</h3>
+            <label for="bgColor1">Background Color 1:</label>
+            <input type="color" id="bgColor1" value="#ffffff">
+            <label for="bgColor2">Background Color 2:</label>
+            <input type="color" id="bgColor2" value="#4caf50">
+        </div>
 
-        <button id="generatePng">Generate PNG</button>
+        <!-- Generate Button -->
+        <div class="section">
+            <button id="generatePng">Generate PNG</button>
+        </div>
     </div>
 
+    <!-- Canvas -->
     <canvas id="quoteCanvas" width="500" height="500"></canvas>
 
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 <a href="https://kingeko.com">kingeko.com</a>
+    </footer>
+
+    <!-- JavaScript -->
     <script>
         const script = document.createElement('script');
         script.src = `quoteGenerator.js?v=${new Date().getTime()}`;
         document.body.appendChild(script);
     </script>
-
-    <footer>
-        &copy; 2024 <a href="https://kingeko.com">kingeko.com</a>
-    </footer>
-    
 </body>
 </html>
